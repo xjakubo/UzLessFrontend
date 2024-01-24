@@ -1,0 +1,32 @@
+
+{% block content %}
+  <button id="dodajButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Dodaj</button>
+
+  <!-- Okno modalne do formularza -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <span class="close" data-bs-dismiss="modal">&times;</span>
+        <!-- Formularz -->
+        <form id="myForm" method="post" action="{% url module|add:'Insert' %}" class="modal-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+<div class="text-center"> <!-- Dodaj ten element dla wycentrowania -->
+            <input type="submit" value="Wyślij" class="btn btn-success">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Skrypt JavaScript obsługujący modal
+    var btn = document.getElementById('dodajButton');
+
+    btn.onclick = function() {
+      // Brak potrzeby ustawiania stylu display: 'block'
+    }
+
+    // Okno modalne będzie automatycznie zamykane po wysłaniu formularza, więc nie trzeba obsługić kliknięcia na znak "×" ani na tło okna modalnego
+  </script>
+{% endblock %}

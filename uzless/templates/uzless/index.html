@@ -1,0 +1,68 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UZLESS</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Twój własny CSS (jeśli istnieje) -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+{% include 'uzless/menu.html' %}
+<!-- Treść strony -->
+<div class="container mt-4">
+    <h1>Uzless</h1>
+    <p class="lead">Skorzystaj z aplikacji, przejdź do poniższych widoków: </p>
+
+    <!-- Dodatkowe elementy zachęcające (możesz dostosować do swoich potrzeb) -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <a href = "{% url 'printerView'  %}">
+            <div class="card">
+                <img src="{% static 'images/1.png' %}" class="card-img-top" alt="Printer Image 1">
+                <div class="card-body">
+                    <h5 class="card-title">Drukarki</h5>
+                    <p class="card-text">Przejdź do widoku drukarek, dodaj,
+                    usuń maszyny</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href = "{% url 'contractorView'  %}">
+            <div class="card">
+                <img src="{% static 'images/contractor.png' %}" class="card-img-top" alt="Printer Image 2">
+                <div class="card-body">
+                    <h5 class="card-title">Klienci</h5>
+                    <p class="card-text">Przejdź do zarządzania klientami.</p>
+                </div>
+            </div>
+	    </a>
+        </div>
+        <div class="col-md-4">
+            <a href = "{% url 'spoolView' %}">
+            <div class="card">
+                <img src="{% static 'images/filament.png' %}" class="card-img-top" alt="Printer Image 3">
+                <div class="card-body">
+                    <h5 class="card-title">Filamenty</h5>
+                    <p class="card-text">Zarządzaj filamentami, sprawdź stany
+                    magazynowe i przygotuj wydruki</p>
+                </div>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (opcjonalne, jeśli korzystasz z komponentów JS) -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

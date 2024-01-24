@@ -1,0 +1,49 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subpage_title }}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Twój własny CSS (jeśli istnieje) -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    {% include 'uzless/menu.html' %}
+<!-- Treść strony -->
+<div class="container mt-4">
+    <h1>{{ subpage_title }}</h1>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+		    {% for table_title in table_titles %}
+		    <th>{{ table_title }}</th>
+		{% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+            <tr>
+                {% for key, value in entity.items  %}
+                <td>{{ value }}</td>
+
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {%include 'uzless/partials/insert.html' %}
+    {%include 'uzless/partials/delete'|add:module|add:'.html' %}
+</div>
+
+<!-- Bootstrap JS (opcjonalne, jeśli korzystasz z komponentów JS) -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

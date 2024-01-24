@@ -1,0 +1,8 @@
+
+/* styles.css (lub inny plik CSS, który jest ładowany przez Twoją aplikację) */
+
+.errorlist {
+  color: red;           /* Kolor tekstu: czerwony */
+  font-size: 0.8em;      /* Rozmiar tekstu: pomniejszony */
+  margin-bottom: 1em;   /* Dodatkowy margines na dole */
+}

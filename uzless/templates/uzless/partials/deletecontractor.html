@@ -1,0 +1,37 @@
+
+{% block content %}
+  <button id="deleteButton" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Usuń</button>
+
+  <!-- Okno modalne do formularza usuwania -->
+  <div id="deleteModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('deleteModal')" data-bs-dismiss="modal">&times;</span>
+        <!-- Formularz usuwania -->
+        <form id="deleteForm" method="post" action="{% url module|add:'Delete' %}" class="modal-form">
+          {% csrf_token %}
+          {% for entity in entities %}
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+              id="entity{{forloop.counter}}" name="selected_entity" value="{{entity.contractorId}}">
+              <label class="form-check-label" for="entity{{forloop.counter
+                  }}">{{ entity.fullName }}</label>
+            </div>
+          {% endfor %}
+          <div class="text-center"> <!-- Dodaj ten element dla wycentrowania -->
+            <input type="submit" value="Wyślij" class="btn btn-success">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Skrypt JavaScript obsługujący modal usuwania
+    var deleteBtn = document.getElementById('deleteButton');
+
+    deleteBtn.onclick = function() {
+      // Brak potrzeby ustawiania stylu display: 'block'
+    }
+  </script>
+{% endblock %}

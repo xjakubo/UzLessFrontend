@@ -1,0 +1,28 @@
+<!-- Pasek nawigacyjny Bootstrap -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">Uzless</a>
+
+        <!-- Przycisk do rozwijania menu na małych ekranach -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu nawigacyjne -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'printerView' %}">Drukarki</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contractorView' %}">Kilenci</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'spoolView' %}">Filamenty</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
